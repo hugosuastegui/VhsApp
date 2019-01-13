@@ -1,0 +1,11 @@
+<h1>Main Dashboard</h1>
+
+<% @project.each do |project| %>
+<div>
+  <p><b><%= project.title %></b></p>
+  <p>Description: <%= project.description %></p>
+  <p>End Date: <%= project.end_date %></p>
+  <p>Client: <%= project.client %></p>
+  <p>Revenue: <%= project.revenue %></p>
+</div>
+<% end %>

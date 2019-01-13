@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   get 'pages/inicio'
   get 'pages/nosotros'
   get 'pages/proyectos'
