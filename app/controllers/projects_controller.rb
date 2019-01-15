@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   
   def index
-    @project = Project.all
+    @projects = Project.all
+    @concepts = Concept.all
   end
 
   def show

@@ -1,11 +1,23 @@
 <h1>Main Dashboard</h1>
 
-<% @project.each do |project| %>
 <div>
+  <h3>Projects</h3>
+  <% @projects.each do |project| %>
   <p><b><%= project.title %></b></p>
   <p>Description: <%= project.description %></p>
   <p>End Date: <%= project.end_date %></p>
   <p>Client: <%= project.client %></p>
   <p>Revenue: <%= project.revenue %></p>
+  <% end %>
 </div>
-<% end %>
+
+<div>
+  <h3>Concepts</h3>
+  <% @concepts.each do |concept| %>
+  <p><b><%= concept.subject %></b></p>
+  <p>Category: <%= concept.category %></p>
+  <p>Subcategory: <%= concept.subcategory %></p>
+  <p>Description: <%= concept.description %></p>
+  <p>Amount: <%= concept.amount %></p>
+  <% end %>
+</div>

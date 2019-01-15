@@ -10,3 +10,13 @@
     volume: 500.0
     )
 end
+
+5.times do |concept|
+    Concept.create!(
+        subject: "Supplier #{concept}",
+        category: "Direct expenses",
+        subcategory: "Welding rods",
+        description: "Purshased 3 5kg 6013 bags for the job",
+        amount: 3312.0
+        )
+end
