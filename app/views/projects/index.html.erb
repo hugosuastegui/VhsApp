@@ -1,20 +1,21 @@
 <h1>Main Dashboard</h1>
+<%= link_to "Create New Project", new_project_path %>
 <hr>
 <div>
   <h3>Projects</h3>
   <% @projects.each do |project| %>
-  <p><b><%= link_to project.title, project_path(project) %></b></p>
   <p>Description: <%= project.description %></p>
   <p>End Date: <%= project.end_date %></p>
   <p>Client: <%= project.client %></p>
   <p>Revenue: <%= project.revenue %></p>
+  <%= link_to "Edit", edit_project_path(project.id) %>
   <% end %>
 </div>
 <hr>
 <div>
   <h3>Concepts</h3>
   <% @concepts.each do |concept| %>
-  <p><b><%= concept.subject %></b></p>
+  <h4><b><%= concept.subject %></b></h4>
   <p>Category: <%= concept.category %></p>
   <p>Subcategory: <%= concept.subcategory %></p>
   <p>Description: <%= concept.description %></p>
