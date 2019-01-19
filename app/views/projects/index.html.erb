@@ -4,7 +4,7 @@
 <div>
   <h3>Projects</h3>
   <% @projects.each do |project| %>
-  <p><b><%= project.title %></b></p>
+  <h4><b><%= project.title %></b></h4>
   <p>Description: <%= project.description %></p>
   <p>End Date: <%= project.end_date %></p>
   <p>Client: <%= project.client %></p>
@@ -16,7 +16,7 @@
 <div>
   <h3>Concepts</h3>
   <% @concepts.each do |concept| %>
-  <p><b><%= concept.subject %></b></p>
+  <h4><b><%= concept.subject %></b></h4>
   <p>Category: <%= concept.category %></p>
   <p>Subcategory: <%= concept.subcategory %></p>
   <p>Description: <%= concept.description %></p>
