@@ -9,7 +9,8 @@
   <p>End Date: <%= project.end_date %></p>
   <p>Client: <%= project.client %></p>
   <p>Revenue: <%= project.revenue %></p>
-  <%= link_to "Edit", edit_project_path(project.id) %>
+  <p><%= link_to "Edit", edit_project_path(project) %></p>
+  <p><%= link_to "Delete", project_path(project), method: :delete, data: { confirm: '¿Are you sure?'} %></p>
   <% end %>
 </div>
 <hr>
