@@ -4,6 +4,7 @@
 <div>
   <h3>Projects</h3>
   <% @projects.each do |project| %>
+  <p><b><%= link_to project.title, project_path(project) %></b></p>
   <p>Description: <%= project.description %></p>
   <p>End Date: <%= project.end_date %></p>
   <p>Client: <%= project.client %></p>
