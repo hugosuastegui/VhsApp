@@ -1,19 +1,37 @@
 <h1>Main Dashboard</h1>
 <%= link_to "Create New Project", new_project_path %>
 <hr>
-<div>
-  <h3>Projects</h3>
-  <% @projects.each do |project| %>
-  <p><b><%= link_to project.title, project_path(project) %></b></p>
-  <p>Description: <%= project.description %></p>
-  <p>End Date: <%= project.end_date %></p>
-  <p>Client: <%= project.client %></p>
-  <p>Revenue: <%= project.revenue %></p>
-  <p><%= link_to "Edit", edit_project_path(project) %></p>
-  <p><%= link_to "Delete", project_path(project), method: :delete, data: { confirm: '¿Are you sure?'} %></p>
-  <% end %>
-</div>
-<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Client</th>
+      <th>Description</th>
+      <th>Revenue</th>
+      <th>End Date</th>
+      <th>Status</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+</thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.title, project_path(project) %></td>
+        <td><%= project.client %></td>
+        <td><%= project.description %></td>
+        <td><%= project.revenue %></td>
+        <td><%= project.end_date %></td>
+        <td><%= link_to project.status.capitalize, toggle_status_project_path(project) %></td>
+        <td><%= link_to "E", edit_project_path(project) %></td>
+        <td><%= link_to "D", project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- <hr>
 <div>
   <h3>Concepts</h3>
   <% @concepts.each do |concept| %>
@@ -23,4 +41,4 @@
   <p>Description: <%= concept.description %></p>
   <p>Amount: <%= concept.amount %></p>
   <% end %>
-</div>
+</div> -->

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :toggle_status]
   
   def index
     @projects = Project.all
@@ -22,11 +23,9 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
     respond_to do |format|
       if @project.update(params.require(:project).permit(:title, :account, :category, :description, :revenue))
         format.html { redirect_to projects_path, notice: "Your project was succesfully updated."}
@@ -37,16 +36,29 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
   end
 
   def destroy
-    @project = Project.find(params[:id])
-
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_path, notice: "Project was removed" }
     end
+  end
+
+  def toggle_status
+    if @project.open?
+      @project.closed!
+    elsif @project.closed?
+      @project.open!
+    end
+
+    redirect_to projects_path, notice: 'Project status updated succesfully.'
+  end
+
+  private
+
+  def set_project
+    @project = Project.find(params[:id])
   end
 
 end
