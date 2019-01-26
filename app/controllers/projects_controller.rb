@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params.require(:project).permit(:title, :account, :category, :description, :revenue))
+    @project = Project.new(params.require(:project).permit(:title, :account, :category, :client, :location, :revenue, :volume))
 
     respond_to do |format|
       if @project.save
