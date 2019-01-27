@@ -1,2 +1,27 @@
 <h1><%= @project.title %></h1>
 <em><%= @project.description %></em>
+
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Amount</th>
+      <th>Invoice</th>
+    </tr>
+</thead>
+  <tbody>
+    <% @project.concepts.each do |concept| %>
+      <tr>
+        <td><%= concept.subject %></td>
+        <td><%= concept.category %></td>
+        <td><%= concept.subcategory %></td>
+        <td><%= concept.amount %></td>
+        <td><%= concept.invoice %></td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
