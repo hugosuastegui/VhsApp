@@ -9,8 +9,9 @@
       <th>Project</th>
       <th>Client</th>
       <th>Description</th>
+      <th>Volume</th>
       <th>Revenue</th>
-      <th>End Date</th>
+      <th>Marginal Contribution</th>
       <th>Status</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -22,8 +23,9 @@
         <td><%= link_to project.title, project_path(project) %></td>
         <td><%= project.client %></td>
         <td><%= project.description %></td>
-        <td><%= project.revenue %></td>
-        <td><%= project.end_date %></td>
+        <td><%= project.volume %></td>
+        <td>Revenue</td>
+        <td>Marginal Contribution</td>
         <td><%= link_to project.status.capitalize, toggle_status_project_path(project) %></td>
         <td><%= link_to "E", edit_project_path(project) %></td>
         <td><%= link_to "D", project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>  
