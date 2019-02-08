@@ -12,6 +12,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params.require(:project).permit(:title, :account, :category, :client, :location, :revenue, :volume))
 
+    # 1st attempt to get nested concepts being built into the projects' show action
+
+    # @project = Project.new(params.require(:project).permit(:title, :account, :category, :client, :location, :revenue, :volume, concepts_attributes: [:subject, :category, :subcategory, :description, :amount, :invoice]))
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to projects_path, notice: "Your project is now live."}
@@ -35,6 +39,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project.concepts.build
   end
 
   def destroy
