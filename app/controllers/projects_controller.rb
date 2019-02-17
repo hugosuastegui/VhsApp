@@ -63,6 +63,7 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+    session[:project] = params[:id]
   end
 
 end
