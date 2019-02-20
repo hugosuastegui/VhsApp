@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params.require(:project).permit(:title, :account, :category, :client, :location, :revenue, :volume))
+    @project = Project.new(project_params)
 
     # 1st attempt to get nested concepts being built into the projects' show action
 
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @project.update(params.require(:project).permit(:title, :account, :category, :description, :revenue))
+      if @project.update(project_params)
         format.html { redirect_to projects_path, notice: "Your project was succesfully updated."}
       else
         format.html { render :edit }
@@ -66,4 +66,7 @@ class ProjectsController < ApplicationController
     session[:project] = params[:id]
   end
 
+  def project_params
+    params.require(:project).permit(:title, :account, :category, :description, :client, :location, :revenue, :volume)
+  end
 end
