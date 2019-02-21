@@ -3,10 +3,12 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.all
+    @page_title = "VHS | Projects"
   end
 
   def new
     @project = Project.new
+    @page_title = "VHS | New Project"
   end
 
   def create
@@ -26,6 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @page_title = "VHS | Edit " + @project.title
   end
 
   def update
@@ -36,9 +39,11 @@ class ProjectsController < ApplicationController
         format.html { render :edit }
       end
     end
+    @page_title = "VHS | Update " + @project.title
   end
 
   def show
+    @page_title = "VHS | " + @project.title
     @project.concepts.build
   end
 
