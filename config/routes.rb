@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
+  devise_for :users, :controllers => { registrations: "registrations" }
 
   resources :projects do
     member do
@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get 'contacto', to: 'pages#contacto'
   get 'intranet', to: 'pages#intranet'
 
-  root to: 'pages#inicio'
+  root 'pages#inicio'
 
 end
