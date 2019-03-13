@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Project</th>
+      <th>Creation</th>
       <th>Client</th>
       <th>Description</th>
       <th>Volume</th>
@@ -16,6 +17,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= link_to project.title, project_path(project) %></td>
+        <td><%= distance_of_time_in_words(project.created_at, Time.now) %></td>
         <td><%= project.client %></td>
         <td><%= project.description %></td>
         <td><%= project.volume %></td>
